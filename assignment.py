@@ -140,22 +140,22 @@ manager = InventoryManager()
 
 
 iphone = InventoryItem("101", "iPhone 15")
-sklad_ivan = Storage("MSK-01", "Иван Иванов")
-sklad_petr = Storage("SPB-02", "Петр Петров")
+storage_ivan = Storage("MSK-01", "Иван Иванов")
+storage_petr = Storage("SPB-02", "Петр Петров")
 
 
-manager.execute_operation(AddItem(), iphone, sklad_ivan, 50)
+manager.execute_operation(AddItem(), iphone, storage_ivan, 50)
 
 
 price_cmd = AdjustPrice()
 manager.execute_operation(price_cmd, iphone, 99000.50)
 
 
-manager.execute_operation(TransferItem(), iphone, sklad_ivan, sklad_petr, 10)
+manager.execute_operation(TransferItem(), iphone, storage_ivan, storage_petr, 10)
 
 print("Текущее состояние:")
-print(sklad_ivan)
-print(sklad_petr)
+print(storage_ivan)
+print(storage_petr)
 print(iphone)
 
 print("Отмена двух последних действий:")
@@ -163,5 +163,5 @@ manager.undo()
 manager.undo()
 
 print("Итоговое состояние:")
-print(sklad_ivan)
+print(storage_ivan)
 print(iphone)
